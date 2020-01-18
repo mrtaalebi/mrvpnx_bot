@@ -5,6 +5,8 @@ from telegram.ext import Updater
 
 
 bot_token = os.getenv('BOT_TOKEN')
+if bot_token is None:
+    raise Exception('BOT_TOKEN env has not been set. exiting.')
 
 updater = Updater(token=bot_token)
 dispatcher = updater.dispatcher
